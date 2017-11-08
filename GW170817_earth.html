@@ -1,0 +1,533 @@
+<!DOCTYPE>
+<html>
+
+<body style="background-color:grey;">
+
+ <!-- Aladin lite popup window-->
+<style type="text/css">
+	.aladin-popup {
+ 	 width: 200px;
+}
+</style>
+
+<!-- Aladin Lite CSS style file -->
+<link rel="stylesheet" href="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
+
+<!-- Aladin Lite has a dependency on the jQuery library -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+
+<!-- Aladin Lite container at requested dimensions -->
+<div id="aladin-lite-div" style="width:600px;height:600px; float: left; "></div>
+
+<h2 style="font-family:Arial, sans-serif; color: #369; margin-left: 25.5em; text-align: justify; margin-right: 2em; text-shadow: 0.5px 0.5px 1px #369">  GW170817: 
+A Multi-Messenger Discovery. </h2>
+
+<!--abstract-->
+<p style="font-family: Arial, sans-serif; font-size: 15.2px; margin-left: 40.5em; text-align: justify; margin-right: 2em; ">
+	<em> <span style="color: #383838;">
+
+	
+
+
+<div style="height:265px;width:630px;resize:both;overflow:scroll;background-color: LightGrey;color:black;font-family: Arial, sans-serif; font-size: 15px;padding:12px;text-align: justify;">
+
+<!-- Checking the box
+          <label><input type="checkbox" name="moc" value="L1,H1" unchecked /><b>L1, H1</b></label>
+          (<label><input type="checkbox" name="moc" value="label" unchecked /><b>label</b></label>, 
+           <label><input type="checkbox" name="moc" value="popup info" unchecked /><b>popup info</b></label>)
+  
+
+  
+the location of GW170817 is displayed in blue.
+This area represents the sky localization which would emerge in the case of the double-coincident detection with the two LIGO interferometers.
+-->
+
+<!--Checking
+         <label><input type="checkbox" name="moc" value="L1,H1,V1" unchecked /><b>L1, H1, V1</b></label>
+          (<label><input type="checkbox" name="moc" value="label" unchecked /><b>label</b></label>, 
+          <label><input type="checkbox" name="moc" value="popup info" unchecked /><b>popup info</b></label>)
+-->
+
+
+
+<!-- sky localizations of the event detected so far -- lalinference skymaps-->
+
+
+
+<!--EPO Reference--> 
+<p style="font-family: Arial, sans-serif; font-size: 10px;margin-left: 3em; text-align: justify;">
+<img src="https://github.com/ggreco77/Multi-Order-Coverage-of-probability-skymaps/blob/master/ligo_virgo_transparent_crop.png?raw=true" alt="Mountain View" style="width:53px;height:40px;float:left;margin: 10px”">
+	<b><span style="color: #696969;"> <br> Education and Public Outreach (EPO) <a href="mailto:outreachteam@ego-gw.it">outreachteam_at_ego-gw.it</a> </span>
+</b> 
+</p> 
+
+<!--Tutorial SlideShower
+<a name="tutorial"></a>
+<h2> Tutorial SlideShower </h2>
+<div class="w3-content w3-display-container ">
+     <img class="SlideshowTutorial" src="https://dcc.ligo.org/DocDB/0145/G1701864/001/show0.jpg" style="width:70%">
+     <img class="SlideshowTutorial" src="https://dcc.ligo.org/DocDB/0145/G1701864/001/show1.jpg" style="width:70%">
+     <img class="SlideshowTutorial" src="https://dcc.ligo.org/DocDB/0145/G1701864/001/show2.jpg" style="width:70%">
+     <img class="SlideshowTutorial" src="https://dcc.ligo.org/DocDB/0145/G1701864/001/show3.jpg" style="width:70%">
+     <img class="SlideshowTutorial" src="https://dcc.ligo.org/DocDB/0145/G1701864/001/show4.jpg" style="width:70%">
+     <img class="SlideshowTutorial" src="https://dcc.ligo.org/DocDB/0145/G1701864/001/show5.jpg" style="width:70%">
+     <img class="SlideshowTutorial" src="https://dcc.ligo.org/DocDB/0145/G1701864/001/show6.jpg" style="width:70%">
+  
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+--> 
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("SlideshowTutorial");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+
+<!-- Aladin Lite JS code -->
+<script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+function lon2ra(lon) {
+  return (360 - lon) % 360;
+}
+
+<!-- Creation of Aladin Lite instance with initial parameters -->
+  
+// Start up Aladin Lite
+var aladin = A.aladin('#aladin-lite-div', {survey: "P/Mellinger/color", target: '3 28 35.268 -35 50 14.04', fov: 175, fullScreen:false, showReticle:false, showLayersControl: false, showGotoControl:false, showFrame: false});
+//aladin.setProjection('AITOFF')
+
+aladin.gotoRaDec(lon2ra(-100), 45);
+
+var earthHiPS = aladin.createImageSurvey("Earth", "Earth", 'http://alasky.u-strasbg.fr/Planets/Earth/', 'j2000', 4);
+aladin.setImageSurvey(earthHiPS);
+
+var ligoHanfordCoo = [-119.407656, 46.455144];
+var ligoLivingston = [-90.774242, 30.562894];
+var VirgoCoo =       [43.6313, 10.5045, ];
+var DanishLaSillaObservatory	= [-29.25, -70.73];
+var ePESSTO			= [-29.2563, 70.738];
+var PierreAugerObservatory	= [-35.1, -69.2];
+var ALMA			= [-23.029, -67.755];
+var HESS			= [-23.271477, 16.500101];
+var HCT				= [32.77944,  78.964167];
+var NordicOpticalTelescope	= [28.7606, 342.1184];
+var BOOTES		        = [31.045, -115.464];
+var MAXI			= [35.78, 139.61];
+var TZAC			= [-31.3567, 115.7136];
+var ATLAS 			= [20.7076, -156.257];
+var CALET			= [35.705, 139.721];
+var TOROScollaboration		= [-30.24, -70.81];
+var INTEGRAL			= [46.290458, 6.150582];
+var ANTARES			= [42.8, 6.17];
+var Swift			= [40.7934, -77.86];
+var NuSTAR			= [34.1478, -118.1445];
+var LasCumbresObservatory	= [-30.167367, -70.8049];
+var VirginIslandRoboticTelescope = [18.3522, -64.9567];
+var Fermi	                = [34.724748, -86.644974];
+var HTRU_North			= [50.5247222, 6.88388];
+var AGILE		        = [41.85, 12.62];
+var Gemini		        = [19.82, -155.47];
+var Palomar		        = [33.35, -116.86];
+var SouthAfricanAstronomicalObs	= [-33.93, 18.48];
+var CerroTololoInterAmericanObs = [-30.17, 70.8];
+var VeryLargeTelescope		= [-24.63, -70.4];
+var Gemini_S			= [-30.24, -70.74];
+var Keck                   	= [19.83, -155.47];
+var VLA				= [34.1, -107.62];
+var ATCA			= [-30.31, 149.55];
+var GMRT			= [19.09, 74.05];
+var GBT				= [38.43, -79.84];
+var SkyMapper		        = [-31.27, 149.06];
+var DesertFireballNetwork	= [-27.0873233, 116.1609547];
+var ASKAP			= [-26.7041667, 116.6588889];
+var ATCA			= [-30.3128847, 149.5501388];
+var MWA				= [-26.7033194, 116.6708152];
+var LSGT			= [-31.27333, 149.06444];
+var iTelescope		        = [-31.27333, 147.06444];
+var Konus_Wind_IPN		= [60.008024, 30.368432];
+var MASTERGlobalRoboticNet_1	= [50.3189, 127.4827];
+var MASTERGlobalRoboticNet_2	= [51.80995, 103.06743];
+var MASTERGlobalRoboticNet_3	= [43.74167, 42.66127];
+var MASTERGlobalRoboticNet_4	= [44.73002, 34.01694];
+var MASTERGlobalRoboticNet_5	= [-32.38039, 20.81117];
+var MASTERGlobalRoboticNet_6	= [28.29865619, -16.51060849];
+var MASTERGlobalRoboticNet_7	= [-31.79889422, -69.29307684];
+var GWFUNC			= [39.9, 116.41];
+var IceCubeNeutrino		= [-90, 0];
+var EuroVLBI			= [52.82, 6.39];
+var ApachePointObservatory	= [32.78, -105.82];
+var KMTNet			= [-30.1672, -70.804];
+var Pan_STARRS1 		= [20.7071, 203.7441];
+var Insight_HXMT	        = [39.92, 116.26];
+
+var observatories = A.catalog({name: 'Observatories', sourceSize: 15, color: '#cc0000'});
+  
+
+observatories.addSources(A.marker(lon2ra(ligoHanfordCoo[0]), ligoHanfordCoo[1], {popupTitle: 'LIGO Hanford', popupDesc: 'LIGO Hanford observatory, Washington'}));
+observatories.addSources(A.marker(lon2ra(ligoLivingston[0]), ligoLivingston[1], {popupTitle: 'LIGO Livingston', popupDesc: 'LIGO Livingston observatory, Louisiana'}));
+observatories.addSources(A.marker(lon2ra(VirgoCoo[1]), VirgoCoo[0], {popupTitle: 'Virgo', popupDesc: 'LIGO Livingston observatory, Louisiana'}));
+
+observatories.addSources(A.marker(lon2ra(DanishLaSillaObservatory[1]), DanishLaSillaObservatory[0], {popupTitle: 'Danish 1.54 m telescope ', popupDesc: 'La Silla Observatory'}));
+observatories.addSources(A.marker(lon2ra(ePESSTO[1]), ePESSTO[0], {popupTitle: 'ePESSTO', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(PierreAugerObservatory[1]), PierreAugerObservatory[0], {popupTitle: 'Pierre Auger Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(ALMA[1]), ALMA[0], {popupTitle: 'ALMA ', popupDesc: 'Atacama Large Millimeter/submillimeter Array'}));
+observatories.addSources(A.marker(lon2ra(HESS[1]), HESS[0], {popupTitle: 'H.E.S.S.', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(HCT[1]), HCT[0], {popupTitle: 'HCT ', popupDesc: 'Himalayan Chandra Telescope'}));
+observatories.addSources(A.marker(lon2ra(NordicOpticalTelescope[1]), NordicOpticalTelescope[0], {popupTitle: 'Nordic Optical Telescope', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(BOOTES[1]), BOOTES[0], {popupTitle: 'BOOTES-5/JGT', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(MAXI[1]), MAXI[0], {popupTitle: 'MAXI', popupDesc: 'Data center'}));
+observatories.addSources(A.marker(lon2ra(TZAC[1]), TZAC[0], {popupTitle: 'TZAC', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(ATLAS[1]), ATLAS[0], {popupTitle: 'ATLAS ', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(CALET[1]), CALET[0], {popupTitle: 'CALET', popupDesc: 'Data center'}));
+observatories.addSources(A.marker(lon2ra(TOROScollaboration[1]), TOROScollaboration[0], {popupTitle: 'TOROS collaboration', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(INTEGRAL[1]), INTEGRAL[0], {popupTitle: 'INTEGRAL', popupDesc: 'Data center'}));
+observatories.addSources(A.marker(lon2ra(ANTARES[1]), ANTARES[0], {popupTitle: 'ANTARES', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Swift[1]), Swift[0], {popupTitle: 'Swift', popupDesc: 'Control room'}));
+observatories.addSources(A.marker(lon2ra(NuSTAR[1]), NuSTAR[0], {popupTitle: 'NuSTAR', popupDesc: 'Control room'}));
+observatories.addSources(A.marker(lon2ra(LasCumbresObservatory[1]), LasCumbresObservatory[0], {popupTitle: 'Las Cumbres Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(VirginIslandRoboticTelescope[1]), VirginIslandRoboticTelescope[0], {popupTitle: 'Virgin Island Robotic Telescope', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Fermi[1]), Fermi[0], {popupTitle: 'Fermi Gamma-ray Burst Monitor', popupDesc: 'GBM Instrument Operations Center'}));
+observatories.addSources(A.marker(lon2ra(HTRU_North[1]), HTRU_North[0], {popupTitle: 'HTRU (North)', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(AGILE[1]), AGILE[0], {popupTitle: 'AGILE space mission', popupDesc: 'Data center'}));
+observatories.addSources(A.marker(lon2ra(Gemini[1]), Gemini[0], {popupTitle: 'Gemini Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Palomar[1]), Palomar[0], {popupTitle: 'Palomar Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(SouthAfricanAstronomicalObs[1]), SouthAfricanAstronomicalObs[0], {popupTitle: 'South African Astronomical Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(CerroTololoInterAmericanObs[1]), CerroTololoInterAmericanObs[0], {popupTitle: 'Cerro Tololo Inter-American Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(VeryLargeTelescope[1]), VeryLargeTelescope[0], {popupTitle: 'Very Large Telescope (UT3)', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Gemini_S[1]), Gemini_S[0], {popupTitle: 'Gemini-S', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Keck[1]), Keck[0], {popupTitle: 'Keck Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(VLA	[1]), VLA	[0], {popupTitle: 'Very Large Array (VLA)', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(ATCA[1]), ATCA[0], {popupTitle: 'ATCA', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(GMRT[1]), GMRT[0], {popupTitle: 'GMRT', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(GBT	[1]), GBT	[0], {popupTitle: 'GBT', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(SkyMapper[1]), SkyMapper[0], {popupTitle: 'SkyMapper and ANU 2.3m telescope', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(DesertFireballNetwork[1]), DesertFireballNetwork[0], {popupTitle: 'Desert Fireball Network', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(ASKAP[1]), ASKAP[0], {popupTitle: 'ASKAP', popupDesc: 'Australian Square Kilometre Array Pathfinder '}));
+observatories.addSources(A.marker(lon2ra(ATCA[1]),ATCA[0], {popupTitle: 'ATCA', popupDesc: 'Australia Telescope Compact Array '}));
+observatories.addSources(A.marker(lon2ra(MWA[1]), MWA[0], {popupTitle: 'MWA', popupDesc: 'Murchison Widefield Array'}));
+observatories.addSources(A.marker(lon2ra(LSGT[1]), LSGT[0], {popupTitle: 'LSGT', popupDesc: 'Lee Sang Gak Telescope'}));
+observatories.addSources(A.marker(lon2ra(iTelescope[1]), iTelescope[0], {popupTitle: 'iTelescope.Net T17,T27,T30,T31 Telescopes', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Konus_Wind_IPN[1]), Konus_Wind_IPN[0], {popupTitle: 'Konus-Wind/IPN', popupDesc: 'Data center'}));
+observatories.addSources(A.marker(lon2ra(MASTERGlobalRoboticNet_1[1]), MASTERGlobalRoboticNet_1[0], {popupTitle: 'MASTER Global Robotic Net', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(MASTERGlobalRoboticNet_2[1]), MASTERGlobalRoboticNet_2[0], {popupTitle: 'MASTER Global Robotic Net', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(MASTERGlobalRoboticNet_3[1]), MASTERGlobalRoboticNet_3[0], {popupTitle: 'MASTER Global Robotic Net', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(MASTERGlobalRoboticNet_4[1]), MASTERGlobalRoboticNet_4[0], {popupTitle: 'MASTER Global Robotic Net', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(MASTERGlobalRoboticNet_5[1]), MASTERGlobalRoboticNet_5[0], {popupTitle: 'MASTER Global Robotic Net', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(MASTERGlobalRoboticNet_6[1]), MASTERGlobalRoboticNet_6[0], {popupTitle: 'MASTER Global Robotic Net', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(MASTERGlobalRoboticNet_7[1]), MASTERGlobalRoboticNet_7[0], {popupTitle: 'MASTER Global Robotic Net', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(GWFUNC[1]), GWFUNC[0], {popupTitle: 'GWFUNC', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(IceCubeNeutrino[1]), IceCubeNeutrino[0], {popupTitle: 'IceCube Neutrino Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(EuroVLBI[1]), EuroVLBI[0], {popupTitle: 'Euro VLBI', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(ApachePointObservatory[1]), ApachePointObservatory[0], {popupTitle: 'Apache Point Observatory', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(KMTNet[1]), KMTNet[0], {popupTitle: 'KMTNet', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Pan_STARRS1[1]), Pan_STARRS1[0], {popupTitle: 'Pan-STARRS1 ', popupDesc: ''}));
+observatories.addSources(A.marker(lon2ra(Insight_HXMT[1]), Insight_HXMT[0], {popupTitle: 'Insight-HXMT', popupDesc: 'Data center'}));
+
+aladin.addCatalog(observatories);
+
+// define custom draw function
+var drawFunction = function(source, canvasCtx, viewParams) {
+    canvasCtx.beginPath();
+    canvasCtx.arc(source.x, source.y, source.data['size'] * 2, 0, 2 * Math.PI, false);
+    canvasCtx.closePath();
+    canvasCtx.strokeStyle = '#c38';
+    canvasCtx.lineWidth = 3;
+    canvasCtx.globalAlpha = 0.7,
+    canvasCtx.stroke();
+    var fov = Math.max(viewParams['fov'][0], viewParams['fov'][1]);
+
+    // object name is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+
+    canvasCtx.globalAlpha = 0.9;
+    canvasCtx.globalAlpha = 1;
+
+    var xShift = 10;
+
+    canvasCtx.font = 'small-caps bold 12px arial'
+    canvasCtx.fillStyle = '#ffffff';
+    canvasCtx.fillText(source.data['name'], source.x + xShift, source.y -4);
+
+    // object type is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+    canvasCtx.font = '12px Arial'
+    canvasCtx.fillStyle = '#abc';
+    canvasCtx.fillText(source.data['otype'], source.x + 2 + xShift, source.y + 10);
+};
+
+// create sources objects
+var VirgoCoo = A.source(lon2ra(VirgoCoo[1]), VirgoCoo[0], {name: 'Virgo', size: 0.5, otype: ''});
+var DanishLaSillaObservatory = A.source(lon2ra(DanishLaSillaObservatory[1]), DanishLaSillaObservatory[0], {name: ' Danish 1.54 m telescope ', size: 0.5, otype: ' '});
+var ePESSTO = A.source(lon2ra(ePESSTO[1]), ePESSTO[0], {name: ' ePESSTO', size: 0.5, otype: ' '});
+var PierreAugerObservatory = A.source(lon2ra(PierreAugerObservatory[1]), PierreAugerObservatory[0], {name: ' Pierre Auger Observatory', size: 0.5, otype: ' '});
+var ALMA = A.source(lon2ra(ALMA[1]), ALMA[0], {name: 'ALMA ', size: 0.5, otype: ' '});
+var HESS = A.source(lon2ra(HESS[1]),  HESS[0], {name: 'H.E.S.S. ', size: 0.5, otype: ' '});
+var HCT = A.source(lon2ra(HCT[1]), HCT[0], {name: ' HCT', size: 0.5, otype: ' '});
+var NordicOpticalTelescope = A.source(lon2ra(NordicOpticalTelescope[1]), NordicOpticalTelescope[0], {name: 'NOT', size: 0.5, otype: ' '});
+var BOOTES = A.source(lon2ra(BOOTES[1]),BOOTES[0], {name: 'BOOTES-5/JGT ', size: 0.5, otype: ' '});
+var MAXI = A.source(lon2ra( MAXI[1]),  MAXI[0], {name: 'MAXI ', size: 0.5, otype: ' '});
+var TZAC = A.source(lon2ra(TZAC[1]),TZAC[0], {name: ' TZAC', size: 0.5, otype: ' '});
+//var ATLAS = A.source(lon2ra(ATLAS[1]), ATLAS[0], {name: 'ATLAS ', size: 0.5, otype: ' '});
+var CALET = A.source(lon2ra(CALET[1]),CALET[0], {name: 'CALET ', size: 0.5, otype: ' '});
+//var TOROScollaboration = A.source(lon2ra(TOROScollaboration[1]), TOROScollaboration[0], {name: 'TOROS collaboration ', size: 0.5, otype: ' '});
+var INTEGRAL = A.source(lon2ra(INTEGRAL[1]), INTEGRAL[0], {name: 'INTEGRAL ', size: 0.5, otype: ' '});
+var ANTARES = A.source(lon2ra(ANTARES[1]), ANTARES[0], {name: ' ANTARES', size: 0.5, otype: ' '});
+var Swift = A.source(lon2ra(Swift[1]), Swift[0], {name: ' Swift', size: 0.5, otype: ' '});
+var NuSTAR = A.source(lon2ra(NuSTAR[1]),NuSTAR[0], {name: 'NuSTAR ', size: 0.5, otype: ' '});
+var LasCumbresObservatory = A.source(lon2ra(LasCumbresObservatory[1]), LasCumbresObservatory[0], {name: 'Las Cumbres Observatory', size: 0.5, otype: ' '});
+var VirginIslandRoboticTelescope = A.source(lon2ra(VirginIslandRoboticTelescope[1]), VirginIslandRoboticTelescope[0], {name: 'Virgin Island Robotic Telescope ', size: 0.5, otype: ' '});
+var Fermi = A.source(lon2ra(Fermi[1]),Fermi[0], {name: ' GBM Instrument Operations Center', size: 0.5, otype: ' '});
+var HTRU_North = A.source(lon2ra(HTRU_North[1]), HTRU_North[0], {name: 'HTRU (North) ', size: 0.5, otype: ' '});
+var AGILE = A.source(lon2ra(AGILE[1]), AGILE[0], {name: 'AGILE space mission ', size: 0.5, otype: ' '});
+var Gemini = A.source(lon2ra(Gemini[1]), Gemini[0], {name: ' Gemini Observatory', size: 0.5, otype: ' '});
+var Palomar = A.source(lon2ra(Palomar[1]), Palomar[0], {name: ' Palomar Observatory', size: 0.5, otype: ' '});
+var SouthAfricanAstronomicalObs = A.source(lon2ra(SouthAfricanAstronomicalObs[1]), SouthAfricanAstronomicalObs[0], {name: ' South African Astronomical Observatory', size: 0.5, otype: ' '});
+var CerroTololoInterAmericanObs = A.source(lon2ra(CerroTololoInterAmericanObs[1]), CerroTololoInterAmericanObs[0], {name: 'Cerro Tololo Inter-American Observatory ', size: 0.5, otype: ' '});
+var VeryLargeTelescope= A.source(lon2ra(VeryLargeTelescope[1]), VeryLargeTelescope[0], {name: ' Very Large Telescope (UT3)', size: 0.5, otype: ' '});
+//var Gemini_S = A.source(lon2ra( Gemini_S[1]),  Gemini_S[0], {name: 'Gemini-S ', size: 0.5, otype: ' '});
+var Keck  = A.source(lon2ra(Keck [1]), Keck [0], {name: 'Keck Observatory ', size: 0.5, otype: ' '});
+var VLA	= A.source(lon2ra(VLA	[1]), VLA	[0], {name: ' Very Large Array (VLA)', size: 0.5, otype: ' '});
+var ATCA = A.source(lon2ra(ATCA[1]), ATCA[0], {name: 'ATCA ', size: 0.5, otype: ' '});
+var GMRT = A.source(lon2ra(GMRT[1]), GMRT[0], {name: 'GMRT ', size: 0.5, otype: ' '});
+var GBT	 = A.source(lon2ra(GBT	[1]), GBT	[0], {name: ' GBT', size: 0.5, otype: ' '});
+var SkyMapper = A.source(lon2ra(SkyMapper[1]), SkyMapper[0], {name: ' SkyMapper and ANU 2.3m telescope', size: 0.5, otype: ' '});
+var DesertFireballNetwork = A.source(lon2ra(DesertFireballNetwork[1]), DesertFireballNetwork[0], {name: ' Desert Fireball Network', size: 0.5, otype: ' '});
+var ASKAP = A.source(lon2ra(ASKAP[1]), ASKAP[0], {name: 'ASKAP ', size: 0.5, otype: ' '});
+var ATCA = A.source(lon2ra(ATCA[1]),ATCA[0], {name: ' ATCA', size: 0.5, otype: ' '});
+var MWA	 = A.source(lon2ra(MWA[1]), MWA[0], {name: 'MWA ', size: 0.5, otype: ' '});
+var LSGT = A.source(lon2ra(LSGT[1]), LSGT[0], {name: 'LSGT ', size: 0.5, otype: ' '});
+var iTelescope = A.source(lon2ra(iTelescope[1]), iTelescope[0], {name: ' iTelescope.Net', size: 0.5, otype: ' '});
+var Konus_Wind_IPN = A.source(lon2ra(Konus_Wind_IPN[1]), Konus_Wind_IPN[0], {name: ' Konus-Wind/IPN', size: 0.5, otype: ' '});
+var MASTERGlobalRoboticNet_1 = A.source(lon2ra(MASTERGlobalRoboticNet_1[1]), MASTERGlobalRoboticNet_1[0], {name: 'MASTER Global Robotic Net ', size: 0.5, otype: ' '});
+var MASTERGlobalRoboticNet_2 = A.source(lon2ra(MASTERGlobalRoboticNet_2[1]),MASTERGlobalRoboticNet_2[0], {name: ' MASTER Global Robotic Net', size: 0.5, otype: ' '});
+var MASTERGlobalRoboticNet_3 = A.source(lon2ra(MASTERGlobalRoboticNet_3[1]), MASTERGlobalRoboticNet_3[0], {name: 'MASTER Global Robotic Net ', size: 0.5, otype: ' '});
+var MASTERGlobalRoboticNet_4 = A.source(lon2ra(MASTERGlobalRoboticNet_4[1]), MASTERGlobalRoboticNet_4[0], {name: 'MASTER Global Robotic Net ', size: 0.5, otype: ' '});
+var MASTERGlobalRoboticNet_5 = A.source(lon2ra(MASTERGlobalRoboticNet_5[1]), MASTERGlobalRoboticNet_5[0], {name: ' MASTER Global Robotic Net', size: 0.5, otype: ' '});
+var MASTERGlobalRoboticNet_6 = A.source(lon2ra( MASTERGlobalRoboticNet_6[1]), MASTERGlobalRoboticNet_6[0], {name: 'MASTER Global Robotic Net', size: 0.5, otype:' '});
+var MASTERGlobalRoboticNet_7 = A.source(lon2ra(MASTERGlobalRoboticNet_7[1]),MASTERGlobalRoboticNet_7[0],{name: 'MASTER Global Robotic Net ', size: 0.5, otype: ' '});
+var GWFUNC = A.source(lon2ra(GWFUNC[1]), GWFUNC[0], {name: ' GWFUNC', size: 0.5, otype: ' '});
+var IceCubeNeutrino = A.source(lon2ra(IceCubeNeutrino[1]), IceCubeNeutrino[0], {name: ' IceCube Neutrino Observatory', size: 0.5, otype: ' '});
+var EuroVLBI = A.source(lon2ra(EuroVLBI[1]), EuroVLBI[0], {name: 'Euro VLBI ', size: 0.5, otype: ' '});
+var ApachePointObservatory = A.source(lon2ra(ApachePointObservatory[1]), ApachePointObservatory[0], {name: ' Apache Point Observatory', size: 0.5, otype: ' '});
+//var KMTNet = A.source(lon2ra(KMTNet[1]), KMTNet[0], {name: 'KMTNet ', size: 0.5, otype: ' '});
+var Pan_STARRS1 = A.source(lon2ra(Pan_STARRS1[1]), Pan_STARRS1[0], {name: ' Pan-STARRS1', size: 0.5, otype: ' '});
+var Insight_HXMT = A.source(lon2ra(Insight_HXMT[1]), Insight_HXMT[0], {name: ' Insight-HXMT', size: 0.5, otype: ' '});
+
+
+
+// create catalog layer with custom draw function
+var cat = A.catalog({name: 'Virgo cluster', shape: drawFunction});
+// add sources to the new layer
+cat.addSources([VirgoCoo,DanishLaSillaObservatory ,ePESSTO ,PierreAugerObservatory ,ALMA ,HESS ,HCT,NordicOpticalTelescope,BOOTES,MAXI,TZAC,CALET ,INTEGRAL,ANTARES,Swift ,NuSTAR, LasCumbresObservatory, VirginIslandRoboticTelescope, Fermi, HTRU_North, AGILE,Gemini,Palomar, SouthAfricanAstronomicalObs, CerroTololoInterAmericanObs, VeryLargeTelescope,Keck,VLA, ATCA, GMRT, GBT, SkyMapper, DesertFireballNetwork,
+ASKAP ,ATCA,MWA,LSGT,iTelescope,Konus_Wind_IPN ,MASTERGlobalRoboticNet_1, MASTERGlobalRoboticNet_2, MASTERGlobalRoboticNet_3,MASTERGlobalRoboticNet_4, MASTERGlobalRoboticNet_5,MASTERGlobalRoboticNet_6, MASTERGlobalRoboticNet_7, GWFUNC, IceCubeNeutrino, EuroVLBI, ApachePointObservatory, Pan_STARRS1,
+Insight_HXMT   ]);
+aladin.addCatalog(cat);
+
+
+//toros
+// define custom draw function
+var drawFunction = function(source, canvasCtx, viewParams) {
+    canvasCtx.beginPath();
+    canvasCtx.arc(source.x, source.y, source.data['size'] * 2, 0, 2 * Math.PI, false);
+    canvasCtx.closePath();
+    canvasCtx.strokeStyle = '#c38';
+    canvasCtx.lineWidth = 3;
+    canvasCtx.globalAlpha = 0.7,
+    canvasCtx.stroke();
+    var fov = Math.max(viewParams['fov'][0], viewParams['fov'][1]);
+
+    // object name is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+
+    canvasCtx.globalAlpha = 0.9;
+    canvasCtx.globalAlpha = 1;
+
+    var xShift = 60;
+
+    canvasCtx.font = 'small-caps bold 12px arial'
+    canvasCtx.fillStyle = '#ffffff';
+    canvasCtx.fillText(source.data['name'], source.x - xShift, source.y +10);
+
+    // object type is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+    canvasCtx.font = '12px Arial'
+    canvasCtx.fillStyle = '#abc';
+    canvasCtx.fillText(source.data['otype'], source.x + 2 + xShift, source.y + 10);
+};
+
+// create sources objects
+var TOROScollaboration = A.source(lon2ra(TOROScollaboration[1]), TOROScollaboration[0], {name: 'TOROS', size: 0.5, otype: ' '});
+
+// create catalog layer with custom draw function
+var cat = A.catalog({name: 'Virgo cluster', shape: drawFunction});
+// add sources to the new layer
+cat.addSources([TOROScollaboration]);
+aladin.addCatalog(cat);
+
+//atlas
+// define custom draw function
+var drawFunction = function(source, canvasCtx, viewParams) {
+    canvasCtx.beginPath();
+    canvasCtx.arc(source.x, source.y, source.data['size'] * 2, 0, 2 * Math.PI, false);
+    canvasCtx.closePath();
+    canvasCtx.strokeStyle = '#c38';
+    canvasCtx.lineWidth = 3;
+    canvasCtx.globalAlpha = 0.7,
+    canvasCtx.stroke();
+    var fov = Math.max(viewParams['fov'][0], viewParams['fov'][1]);
+
+    // object name is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+
+    canvasCtx.globalAlpha = 0.9;
+    canvasCtx.globalAlpha = 1;
+
+    var xShift = 120;
+
+    canvasCtx.font = 'small-caps bold 12px arial'
+    canvasCtx.fillStyle = '#ffffff';
+    canvasCtx.fillText(source.data['name'], source.x - xShift, source.y +10);
+
+    // object type is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+    canvasCtx.font = '12px Arial'
+    canvasCtx.fillStyle = '#abc';
+    canvasCtx.fillText(source.data['otype'], source.x + 2 + xShift, source.y + 10);
+};
+
+// create sources objects
+var ATLAS = A.source(lon2ra(ATLAS[1]), ATLAS[0], {name: 'ATLAS ', size: 0.5, otype: ' '});
+
+// create catalog layer with custom draw function
+var cat = A.catalog({name: 'Virgo cluster', shape: drawFunction});
+// add sources to the new layer
+cat.addSources([Atlas]);
+aladin.addCatalog(cat);
+
+
+
+
+
+//kmtnet
+// define custom draw function
+var drawFunction = function(source, canvasCtx, viewParams) {
+    canvasCtx.beginPath();
+    canvasCtx.arc(source.x, source.y, source.data['size'] * 2, 0, 2 * Math.PI, false);
+    canvasCtx.closePath();
+    canvasCtx.strokeStyle = '#c38';
+    canvasCtx.lineWidth = 3;
+    canvasCtx.globalAlpha = 0.7,
+    canvasCtx.stroke();
+    var fov = Math.max(viewParams['fov'][0], viewParams['fov'][1]);
+
+    // object name is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+
+    canvasCtx.globalAlpha = 0.9;
+    canvasCtx.globalAlpha = 1;
+
+    var xShift = 60;
+
+    canvasCtx.font = 'small-caps bold 12px arial'
+    canvasCtx.fillStyle = '#ffffff';
+    canvasCtx.fillText(source.data['name'], source.x - xShift, source.y -4);
+
+    // object type is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+    canvasCtx.font = '12px Arial'
+    canvasCtx.fillStyle = '#abc';
+    canvasCtx.fillText(source.data['otype'], source.x + 2 + xShift, source.y + 20);
+};
+
+// create sources objects
+var KMTNet = A.source(lon2ra(KMTNet[1]), KMTNet[0], {name: 'KMTNet ', size: 0.5, otype: ' '});
+
+// create catalog layer with custom draw function
+var cat = A.catalog({name: 'Virgo cluster', shape: drawFunction});
+// add sources to the new layer
+cat.addSources([KMTNet]);
+aladin.addCatalog(cat);
+
+
+//gemini-s
+// define custom draw function
+var drawFunction = function(source, canvasCtx, viewParams) {
+    canvasCtx.beginPath();
+    canvasCtx.arc(source.x, source.y, source.data['size'] * 2, 0, 2 * Math.PI, false);
+    canvasCtx.closePath();
+    canvasCtx.strokeStyle = '#c38';
+    canvasCtx.lineWidth = 3;
+    canvasCtx.globalAlpha = 0.7,
+    canvasCtx.stroke();
+    var fov = Math.max(viewParams['fov'][0], viewParams['fov'][1]);
+
+    // object name is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+
+    canvasCtx.globalAlpha = 0.9;
+    canvasCtx.globalAlpha = 1;
+
+    var xShift = -10;
+
+    canvasCtx.font = 'small-caps bold 12px arial'
+    canvasCtx.fillStyle = '#ffffff';
+    canvasCtx.fillText(source.data['name'], source.x - xShift, source.y +10);
+
+    // object type is displayed only if fov<180
+    if (fov>100) {
+        return;
+    }
+    canvasCtx.font = '12px Arial'
+    canvasCtx.fillStyle = '#abc';
+    canvasCtx.fillText(source.data['otype'], source.x + 2 + xShift, source.y + 10);
+};
+
+// create sources objects
+var Gemini_S = A.source(lon2ra( Gemini_S[1]),  Gemini_S[0], {name: 'Gemini-S ', size: 0.5, otype: ' '});
+
+// create catalog layer with custom draw function
+var cat = A.catalog({name: 'Virgo cluster', shape: drawFunction});
+// add sources to the new layer
+cat.addSources([Gemini_S]);
+aladin.addCatalog(cat);
+
+
+</script>
+
+
+</body>
+ </html>
