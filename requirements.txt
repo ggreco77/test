@@ -1,2 +1,3 @@
-healpy
+mocpy
+astropy-healpix
 
