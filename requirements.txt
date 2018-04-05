@@ -1,3 +1,2 @@
-ipyaladin
 healpy
-mocpy
+
