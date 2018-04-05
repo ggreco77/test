@@ -1,4 +1,3 @@
 ipyaladin
 healpy
 mocpy
-numpy
