@@ -1,0 +1,63 @@
+
+    <h1>This is a test!</h1>
+
+    <!-- Aladin Lite CSS style file -->
+    <link rel="stylesheet" href="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
+
+    <!-- Aladin Lite has a dependency on the jQuery library -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+
+    <!-- Aladin Lite container at requested dimensions -->
+    <div id="aladin-lite-div" style="width:800px;height:800px;"></div>
+
+    <!-- Aladin Lite JS code -->
+    <script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+
+    <!-- Creation of Aladin Lite instance with initial parameters -->
+    <script type="text/javascript">
+        var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:360, showSimbadPointerControl:true});
+
+        $('input[name=survey]').change(function() {
+            aladin.setImageSurvey($(this).val());
+        });
+
+
+<!-- ADD galaxy in 90% volume -->
+
+
+<!-- ADD 90% MOC GW190814 -->
+var moc1 = A.MOCFromURL('https://github.com/ggreco77/test/blob/master/test/MOC_0.9_bayestar.multiorder_2IFO.fits?raw=true', 
+{color: '#007fff', opacity:0.8, name: 'BAYESTAR-2IFO', adaptativeDisplay: false});
+
+
+aladin.addCatalog(A.catalogFromURL('https://raw.githubusercontent.com/ggreco77/test/master/test/cat1', 
+{sourceSize:5, color: '#007fff', onClick: 'showPopup', name: 'Glade 90% vol. BAYESTAR-2IFO'}));
+
+var moc2 = A.MOCFromURL('https://github.com/ggreco77/test/blob/master/test/MOC_0.9_bayestar.multiorder_3IFO.fits?raw=true', 
+{color: 'orange', opacity:0.75, name: 'BAYESTAR-3IFO', adaptativeDisplay: false});
+
+aladin.addCatalog(A.catalogFromURL('https://raw.githubusercontent.com/ggreco77/test/master/test/cat2', 
+{sourceSize:7, color: 'orange',onClick: 'showPopup', name: 'Glade 90% vol. BAYESTAR-3IFO'}));
+
+var moc3 = A.MOCFromURL('https://github.com/ggreco77/test/blob/master/test/MOC_0.9_LALInference.v1.multiorder.fits?raw=true',
+ {color: 'magenta', opacity:0.75, name: 'LALInference', adaptativeDisplay: false});
+
+aladin.addCatalog(A.catalogFromURL('https://raw.githubusercontent.com/ggreco77/test/master/test/cat3', 
+{sourceSize:7, color: 'magenta',onClick: 'showPopup', name: 'Glade 90% vol. LALInference'}));
+
+var moc4 = A.MOCFromURL('https://github.com/ggreco77/test/blob/master/test/MOC_0.9_GW190814_skymap.fits?raw=true', 
+{color: 'yellow', opacity:0.75, name: 'GWTC-2', adaptativeDisplay: false});
+
+aladin.addCatalog(A.catalogFromURL('https://raw.githubusercontent.com/ggreco77/test/master/test/cat4', 
+{sourceSize:7, color: 'yellow',onClick: 'showPopup', name: 'Glade 90% vol. GWTC-2', layer:'hide'}));
+
+aladin.addMOC(moc1);
+aladin.addMOC(moc2);
+aladin.addMOC(moc3);
+aladin.addMOC(moc4);
+
+
+
+    </script>
+
+    
